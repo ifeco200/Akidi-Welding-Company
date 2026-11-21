@@ -535,3 +535,41 @@
     });
 
 })();
+/* Accessible mobile navigation for Akidi Welding website. */
+(() => {
+    "use strict";
+
+    const menuButton = document.querySelector(".menu-toggle");
+    const menu = document.querySelector("#primary-navigation");
+
+    if (!menuButton || !menu) return;
+
+    const closeMenu = () => {
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation");
+        menu.classList.remove("is-open");
+    };
+
+    menuButton.addEventListener("click", () => {
+        const open = menuButton.getAttribute("aria-expanded") !== "true";
+
+        menuButton.setAttribute("aria-expanded", String(open));
+        menuButton.setAttribute(
+            "aria-label",
+            open ? "Close navigation" : "Open navigation"
+        );
+        menu.classList.toggle("is-open", open);
+    });
+
+    menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeMenu();
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 760) closeMenu();
+    });
+})();
