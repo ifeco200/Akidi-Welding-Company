@@ -1847,3 +1847,227 @@ footer {
         transition-duration: .01ms !important;
     }
 }
+
+/* ==============================
+   PROFESSIONAL AKIDI HEADER
+================================ */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: #111416;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+}
+
+.header-container {
+    width: min(1200px, 92%);
+    min-height: 88px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+/* BRAND */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.brand-mark {
+    width: 46px;
+    height: 46px;
+
+    display: grid;
+    place-items: center;
+
+    background: #f28c28;
+    color: #111416;
+
+    font-size: 25px;
+    font-weight: 900;
+    font-family: Arial, sans-serif;
+
+    border-radius: 4px;
+    transform: skew(-5deg);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.brand-text strong {
+    color: #ffffff;
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.brand-text span {
+    color: #b7bdc2;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.7px;
+}
+
+/* NAVIGATION */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-link {
+    position: relative;
+    text-decoration: none;
+
+    color: #c5c9cc;
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: color 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffffff;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: #f28c28;
+
+    transition: width 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* CTA BUTTON */
+
+.header-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 13px 19px;
+
+    background: #f28c28;
+    color: #111416;
+
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+
+    border-radius: 3px;
+    white-space: nowrap;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.header-cta:hover {
+    background: #ffab50;
+    transform: translateY(-2px);
+}
+
+.header-cta span {
+    font-size: 17px;
+}
+
+/* TABLET */
+
+@media (max-width: 950px) {
+    .header-container {
+        gap: 20px;
+    }
+
+    .main-nav {
+        gap: 18px;
+    }
+
+    .brand-text strong {
+        font-size: 20px;
+    }
+
+    .brand-text span {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+    .header-container {
+        min-height: 75px;
+        width: 94%;
+        gap: 12px;
+    }
+
+    .brand {
+        gap: 10px;
+    }
+
+    .brand-mark {
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+    }
+
+    .brand-text strong {
+        font-size: 18px;
+        letter-spacing: 1.5px;
+    }
+
+    .brand-text span {
+        font-size: 8px;
+        letter-spacing: 0.8px;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .header-cta {
+        padding: 11px 13px;
+        font-size: 12px;
+        gap: 6px;
+    }
+}
+
+@media (max-width: 380px) {
+    .brand-text span {
+        letter-spacing: 0;
+        font-size: 7px;
+    }
+
+    .header-cta {
+        padding: 10px;
+    }
+}
